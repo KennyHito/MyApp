@@ -20,7 +20,7 @@
     [super viewDidLoad];
     NSString *userName = self.flutterMsg[@"userName"];
     NSString *pwd = self.flutterMsg[@"pwd"];
-    self.flutterMsgLbl.text = [NSString stringWithFormat:@"从Flutter页面产值为: %@和%@",userName,pwd];
+    self.flutterMsgLbl.text = [NSString stringWithFormat:@"从Flutter页面产值为:%@和%@",userName,pwd];
 }
 
 @end
