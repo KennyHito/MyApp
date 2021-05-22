@@ -31,9 +31,7 @@
     self.navigationItem.title = @"原生首页";
     NSArray *dataArr = @[@"flutter列表",@"flutter登录页面",@"flutter练习"];
     [self createButton:dataArr.count withTitle:dataArr];
-    [self quickSort];
-    [self selectSort];
-    [self bubblingSort];
+    [self sortMethod];
 }
 
 - (CGFloat)getStatusHeight{
@@ -115,10 +113,13 @@
     return nil;
 }
 
-- (void)quickSort{
+#pragma mark 各种排序方法
+- (void)sortMethod{
     NSMutableArray *arr = [self.dataArr mutableCopy];
     [self quickSort:arr start:0 end:arr.count-1];
     NSLog(@"快速排序法排序后的数组: %@",arr);
+    [self selectSort];
+    [self bubblingSort];
 }
 
 //快速排序
