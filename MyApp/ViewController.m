@@ -34,6 +34,11 @@
     [self sortMethod];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self studyGCD];
+}
+
 - (CGFloat)getStatusHeight{
     if (@available(iOS 13.0, *)) {
         return [[UIApplication sharedApplication].windows objectAtIndex:0].windowScene.statusBarManager.statusBarFrame.size.height;
@@ -195,5 +200,23 @@
     NSLog(@"冒泡排序法排序后的数组: %@",arr);
 }
 
+- (void)studyGCD{
+    NSLog(@"--->1");
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"--->2");
+        dispatch_group_leave(group);
+    });
+    dispatch_group_enter(group);
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"--->3");
+        dispatch_group_leave(group);
+    });
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"--->4");
+    });
+    NSLog(@"--->5");
+}
 
 @end
