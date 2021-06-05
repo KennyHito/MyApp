@@ -18,6 +18,15 @@
 
 @implementation ViewController
 
+//+ (id)shareInstance{
+//    static APIString *sharedApiStringInstance = nil;
+//    static dispatch_once_t predicate;
+//    dispatch_once(&predicate, ^{
+//        sharedApiStringInstance = [[self alloc] init];
+//    });
+//    return sharedApiStringInstance;
+//}
+
 - (NSMutableArray *)dataArr{
     if (!_dataArr) {
         _dataArr = [[NSMutableArray alloc]initWithArray:@[@"1",@"12",@"45",@"14",@"54",@"75",@"85",@"19",@"62",@"17",@"98"]];
@@ -31,12 +40,13 @@
     self.navigationItem.title = @"原生首页";
     NSArray *dataArr = @[@"flutter列表",@"flutter登录页面",@"flutter练习"];
     [self createButton:dataArr.count withTitle:dataArr];
-    [self sortMethod];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self studyGCD];
+    //[self sortMethod];
+    //[self studyGCD];
+    [self studyMethod];
 }
 
 - (CGFloat)getStatusHeight{
@@ -217,6 +227,19 @@
         NSLog(@"--->4");
     });
     NSLog(@"--->5");
+}
+
+- (void)studyMethod{
+//    NSLog(@"%s",__func__);
+//    NSSet *set = [[NSSet alloc]initWithObjects:@"14",@"12",@"32",@"12", nil];
+//    NSLog(@"%@",set);
+//    NSLog(@"%@",self.dataArr);
+//    NSArray *arr = [[NSArray alloc]initWithObjects:@"4",@"2",@"234",@"12", nil];
+//    NSMutableArray *muarr = [[NSMutableArray alloc] initWithObjects:@"14",@"12",@"32",@"12", nil];
+//    NSLog(@"%p---%p",arr,muarr);
+//    NSLog(@"%p---%p",[arr copy],[muarr copy]);
+//    NSLog(@"%p---%p",[arr mutableCopy],[muarr mutableCopy]);
+    
 }
 
 @end
